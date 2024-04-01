@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:newsapp/app_maneger.dart';
 import 'package:newsapp/model/SoursesResponse.dart';
@@ -16,15 +17,16 @@ static String Route_Name='HomeScreen';
 class _HomeScreenState extends State<HomeScreen> {
   List<Result> result=[];
   @override
-  void initState(){
+  void initState() {
     //todo: implement initial State
     super.initState();
-    APImanger.getSoureses().then((soursesResponse) =>
-    result=soursesResponse.results!);
-    print(result[0].category);
+    APImanger.getSoureses().then((soursesResponse) {
+    result = soursesResponse.results!;
+    print(result[5].category);
+  });
   }
   @override
   Widget build(BuildContext context)  {
-    return Container();
+    return Scaffold();
   }
 }
