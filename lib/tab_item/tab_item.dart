@@ -12,7 +12,6 @@ class TabItems extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
-        
         color: Selected? Colors.green:Colors.white,
         borderRadius: BorderRadius.circular(60),
         border: Border.all(color: Colors.green),
