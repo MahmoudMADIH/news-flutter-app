@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/homeScreen/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:Scaffold(),
+      routes: {
+        HomeScreen.Route_Name:(context)=>HomeScreen(),
+      },
+      initialRoute: HomeScreen.Route_Name,
     );
   }
 }

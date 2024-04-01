@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     APImanger.getSoureses().then((soursesResponse) =>
     result=soursesResponse.results!);
+    print(result[0].category);
   }
   @override
   Widget build(BuildContext context)  {

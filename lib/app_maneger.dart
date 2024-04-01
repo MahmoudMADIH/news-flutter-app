@@ -8,7 +8,7 @@ class APImanger {
             'https://newsdata.io/api/1/news?country=eg&apikey=pub_411884ac78d60b15c77fc6f4dd9cc44d56e1c'))
         as http.Response;
     SoursesResponse soursesResponse =
-        SoursesResponse.fromJson(jsonEncode(response.body));
+        SoursesResponse.fromJson(jsonDecode(response.body));
     if (response.statusCode >= 200 && response.statusCode < 300) {
       //todo: response sucsess convert data to jeson class
       return soursesResponse;
