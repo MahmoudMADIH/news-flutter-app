@@ -80,6 +80,8 @@ SoursesResponse copyWith({  String? status,
 /// ai_region : "ONLY AVAILABLE IN CORPORATE PLANS"
 
 class Result {
+  String? code ;
+  String? massage ;
   Result({
       String? articleId, 
       String? title, 
@@ -123,6 +125,7 @@ class Result {
     _sentiment = sentiment;
     _sentimentStats = sentimentStats;
     _aiRegion = aiRegion;
+
 }
 
   Result.fromJson(dynamic json) {
