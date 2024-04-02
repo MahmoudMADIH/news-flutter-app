@@ -23,7 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
     APImanger.getSoureses().then((soursesResponse) {
     result = soursesResponse.results!;
     //this for the debuging
-    //print(result[5].category);
+    for(int i=0 ; i<=result.length ;i++) {
+      print(result[i].category);
+    }
   });
   }
   @override
