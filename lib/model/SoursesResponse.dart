@@ -16,8 +16,8 @@ class SoursesResponse {
 }
 
   SoursesResponse.fromJson(dynamic json) {
-    _status = json['status'];
-    _totalResults = json['totalResults'];
+    _status = json['status'] as String;
+    _totalResults = json['totalResults'] ;
     if (json['results'] != null) {
       _results = [];
       json['results'].forEach((v) {
@@ -119,7 +119,7 @@ class Result {
     _sourceIcon = sourceIcon;
     _sourcePriority = sourcePriority;
     _country = country;
-    _category = category;
+    _category = category ;
     _language = language;
     _aiTag = aiTag;
     _sentiment = sentiment;
@@ -239,27 +239,27 @@ Result copyWith({  String? articleId,
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['article_id'] = _articleId;
-    map['title'] = _title;
-    map['link'] = _link;
-    map['keywords'] = _keywords;
-    map['creator'] = _creator;
-    map['video_url'] = _videoUrl;
-    map['description'] = _description;
-    map['content'] = _content;
-    map['pubDate'] = _pubDate;
-    map['image_url'] = _imageUrl;
-    map['source_id'] = _sourceId;
-    map['source_url'] = _sourceUrl;
-    map['source_icon'] = _sourceIcon;
-    map['source_priority'] = _sourcePriority;
-    map['country'] = _country;
-    map['category'] = _category;
-    map['language'] = _language;
-    map['ai_tag'] = _aiTag;
-    map['sentiment'] = _sentiment;
-    map['sentiment_stats'] = _sentimentStats;
-    map['ai_region'] = _aiRegion;
+    map['article_id'] = _articleId as String ;
+    map['title'] = _title as String;
+    map['link'] = _link as String;
+    map['keywords'] = _keywords as String;
+    map['creator'] = _creator as String;
+    map['video_url'] = _videoUrl as String;
+    map['description'] = _description as String;
+    map['content'] = _content as String;
+    map['pubDate'] = _pubDate as String;
+    map['image_url'] = _imageUrl as String;
+    map['source_id'] = _sourceId as String;
+    map['source_url'] = _sourceUrl as String;
+    map['source_icon'] = _sourceIcon as String;
+    map['source_priority'] = _sourcePriority as String;
+    map['country'] = _country as String;
+    map['category'] = _category as String;
+    map['language'] = _language as String;
+    map['ai_tag'] = _aiTag as String;
+    map['sentiment'] = _sentiment as String;
+    map['sentiment_stats'] = _sentimentStats as String;
+    map['ai_region'] = _aiRegion as String;
     return map;
   }
 

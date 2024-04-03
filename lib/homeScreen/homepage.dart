@@ -25,10 +25,13 @@ class _HomeScreenState extends State<HomeScreen> {
     //todo: implement initial State
     super.initState();
     APImanger.getSoureses().then((soursesResponse) {
-      result = soursesResponse.results ?? [];
+      result = soursesResponse.results??[];
       setState(() {});
       //this for the debuging
-      //print(result[5].category);
+      print(result.length);
+      // for(int i=0 ;i<=10 ;i++){
+      //   print(result[i].category);
+      // }
     });
   }
 
@@ -38,25 +41,47 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: DefaultTabController(
+      body:
+      DefaultTabController(
         length: result.length,
         child: Column(
           children: [
-            Container(
-              margin: const EdgeInsets.all(12),
-              child: TabBar(
-                isScrollable: true,
-                onTap: (index) {
-                  currentindex = index;
-                },
+            TabBar(
+              onTap: (index){
+                currentindex=index;
+              },
                 tabs: result.map((result) {
                   return TabItems(result, true);
-                }).toList(),
-              ),
-            ),
+                }).toList(), ),
+            Expanded(
+                child: TabBarView(
+                  children: result.map((e) => Text(result[5].category as String )).toList(),
+                ))
           ],
         ),
-      ),
+      )
+      // DefaultTabController(
+      //   length: result.length,
+      //   child: Column(
+      //     children: [
+      //       Container(
+      //         margin: const EdgeInsets.all(12),
+      //         child: TabBar(
+      //           isScrollable: true,
+      //           onTap: (index) {
+      //             currentindex = index;
+      //           },
+      //           tabs: result.map((result) {
+      //             return TabItems(result, true);
+      //           }).toList(),
+      //
+      //         ),
+      //
+      //       )
+      //       ,
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

@@ -7,6 +7,7 @@ class APImanger {
     http.Response response = await http.get(Uri.parse(
             'https://newsdata.io/api/1/news?country=eg&apikey=pub_411884ac78d60b15c77fc6f4dd9cc44d56e1c'))
         as http.Response;
+    // print(response.body);
     SoursesResponse soursesResponse =
         SoursesResponse.fromJson(jsonDecode(response.body));
     if (response.statusCode >= 200 && response.statusCode < 300) {
