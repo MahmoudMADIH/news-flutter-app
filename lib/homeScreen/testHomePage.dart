@@ -1,59 +1,65 @@
-import 'dart:async';
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:newsapp/app_maneger.dart';
-import 'package:newsapp/model/SoursesResponse.dart';
-import 'package:newsapp/tab_item/tab_item.dart';
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  static String Route_Name = 'HomeScreen';
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  List<Result> result = [];
-
-  @override
-  void initState() {
-    //todo: implement initial State
-    super.initState();
-    APImanger.getSoureses().then((soursesResponse) {
-      result = soursesResponse.results ?? [];
-      setState(() {});
-      //this for the debuging
-      print(result.length);
-      // for(int i=0 ;i<=10 ;i++){
-      //   print(result[i].category);
-      // }
-    });
-  }
-
-  int currentindex = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: DefaultTabController(
-        length: result.length,
-        child: TabBarView(
-          children: [
-            TabBar(
-              onTap: (index) {
-                currentindex = index;
-              },
-              tabs: result.map((result) {
-                return TabItems(result, true);
-              }).toList(),),
-          ],
-        ),
-      ),
-    );
-  }
-}
+// import 'dart:async';
+// import 'package:flutter/material.dart';
+//
+// import '../app_maneger.dart';
+// import '../model/SoursesResponse.dart';
+//
+// class HomeScreen extends StatefulWidget {
+//   const HomeScreen({super.key});
+//
+//   static String Route_Name = 'HomeScreen';
+//
+//   @override
+//   State<HomeScreen> createState() => _HomeScreenState();
+// }
+//
+// class _HomeScreenState extends State<HomeScreen> {
+//   List<Result> result = [];
+//   int currentindex = 0;
+//
+//   @override
+//   void initState() {
+//     super.initState();
+//     APImanger.getSoureses().then((soursesResponse) {
+//       result = soursesResponse.results ?? [];
+//       setState(() {});
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(),
+//       body: DefaultTabController(
+//         length: result.length,
+//         child: Column(
+//           children: [
+//             TabBar(
+//               onTap: (index) {
+//                 setState(() {
+//                   currentindex = index;
+//                 });
+//               },
+//               tabs: result.map((result) {
+//                 return Tab(
+//                   text: result.category as String ?? '', // Use text instead of TabItems
+//                 );
+//               }).toList(),
+//             ),
+//             Expanded(
+//               child: TabBarView(
+//                 children: result.map((result) => _buildTabContent(result)).toList(), // Fix content mapping
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+//
+//   Widget _buildTabContent(Result result) {
+//     // Build the content for each tab based on the 'result' data
+//     // TODO: Implement your content here, for example:
+//     return Text(result.title as String ?? '');
+//   }
+// }
