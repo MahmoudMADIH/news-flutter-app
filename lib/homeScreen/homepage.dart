@@ -28,7 +28,19 @@ class _HomeScreenState extends State<HomeScreen> {
     //todo: implement initial State
     super.initState();
     APImanger.getSoureses().then((soursesResponse) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+    result = soursesResponse.results!;
+    //this for the debuging
+    for(int i=0 ; i<=result.length ;i++) {
+      print(result[i].category);
+    }
+  });
+=======
+      result = soursesResponse.results ?? [];
+=======
       result = soursesResponse.results??[];
+>>>>>>> 659ff8d0183254eb5b6adb8bcc7095011aa4c19f
       setState(() {});
       //this for the debuging
       print(result.length);
@@ -36,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
       //   print(result[i].category);
       // }
     });
+>>>>>>> 3ed02bd8a2e924425114377e5f80fcd2e9b72bd4
   }
 
   @override
